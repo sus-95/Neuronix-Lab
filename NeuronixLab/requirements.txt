@@ -9,4 +9,5 @@ plotly
 scikit-learn
 google-generativeai
 opencv-python-headless
+streamlit-drawable-canvas
 
