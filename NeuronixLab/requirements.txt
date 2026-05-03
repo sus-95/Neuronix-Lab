@@ -8,4 +8,5 @@ tensorflow
 plotly
 scikit-learn
 google-generativeai
-opencv-python
+opencv-python-headless
+
