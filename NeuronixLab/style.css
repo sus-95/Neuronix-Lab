@@ -1,163 +1,78 @@
 /* Global Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
-html,
-body,
-[class*="css"] {
-    font-family: 'Inter', sans-serif;
+html, body, [class*="css"] {
+    font-family: 'Outfit', sans-serif;
     color: #1e293b;
 }
 
-/* 1. App Background - Force Light Theme */
+/* 1. App Background - Modern Premium Gradient */
 .stApp {
-    background: #f8fafc !important;
-    color: #1e293b !important;
+    background: radial-gradient(circle at top right, #fdfcfb 0%, #e2d1c3 100%) !important;
+    background-attachment: fixed !important;
 }
 
-/* 2. Sidebar - Force Light Frosted Glass */
+/* 2. Sidebar - Modern Clean Look */
 [data-testid="stSidebar"] {
-    background-color: #ffffff !important;
-    border-right: 1px solid #e2e8f0 !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.02) !important;
 }
 
-
-[data-testid="stSidebar"] * {
-    color: #334155;
+/* Target NEW Streamlit Navigation Sidebar */
+[data-testid="stSidebarNavItems"] [data-testid="stSidebarNavItem"] {
+    margin: 4px 10px !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
 }
 
-/* Sidebar Section Headers */
-.nav-section {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: #94a3b8 !important;
-    margin-top: 1.5rem;
-    margin-bottom: 0.25rem;
-    padding-left: 0.5rem;
-    text-transform: uppercase;
+/* Active Nav Item */
+[data-testid="stSidebarNavItems"] [data-testid="stSidebarNavItem"][aria-selected="true"] {
+    background: linear-gradient(135deg, #6C63FF 0%, #4834d4 100%) !important;
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2) !important;
 }
 
-.sidebar-header {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #0f172a !important;
-    margin-bottom: 0.5rem;
+[data-testid="stSidebarNavItems"] [data-testid="stSidebarNavItem"][aria-selected="true"] * {
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+/* 3. Gradient Headers */
+h1, h2, h3, .gradient-text {
     background: linear-gradient(135deg, #6C63FF 0%, #00C9A7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 800 !important;
 }
 
-/* 3. Main Content Buttons */
+/* 4. Premium Buttons */
 .stButton>button {
     background: linear-gradient(135deg, #6C63FF 0%, #00C9A7 100%) !important;
+    color: white !important;
     border: none !important;
-    border-radius: 10px !important;
-    padding: 0.5rem 1.5rem !important;
-    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
-}
-
-.stButton>button p {
-    color: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 0.6rem 2rem !important;
     font-weight: 600 !important;
-    margin: 0 !important;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-transform: none !important;
 }
 
 .stButton>button:hover {
-    box-shadow: 0 8px 20px rgba(108, 99, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-    transform: translateY(-2px) scale(1.01) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3) !important;
 }
 
-/* Sidebar Nav Buttons */
-[data-testid="stSidebar"] .stButton>button {
-    background: transparent !important;
-    border: none !important;
-    border-left: 4px solid transparent !important;
-    border-radius: 8px !important;
-    box-shadow: none !important;
-    padding: 0.5rem 1rem !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-[data-testid="stSidebar"] .stButton>button[kind="primary"] {
-    background: linear-gradient(90deg, rgba(108, 99, 255, 0.08) 0%, transparent 100%) !important;
-    border-left: 4px solid #6C63FF !important;
-    border-radius: 0 8px 8px 0 !important;
-}
-
-/* 5. Glassmorphism Cards */
-.glass-card {
-    background: rgba(255, 255, 255, 0.85) !important;
-    backdrop-filter: blur(16px) !important;
-    border-radius: 16px !important;
+/* 5. Glassmorphism Cards for Sections */
+.stMarkdown div[data-testid="stVerticalBlock"] > div {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 20px !important;
     border: 1px solid rgba(255, 255, 255, 0.8) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
-    padding: 1.25rem !important;
-    margin-bottom: 1rem !important;
+    padding: 20px !important;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
 }
 
-.gradient-text {
-    background: linear-gradient(135deg, #6C63FF 0%, #00C9A7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-}
-
-/* 7. Metrics */
-[data-testid="stMetric"] {
-    background: rgba(255, 255, 255, 0.9) !important;
-    border: 1px solid rgba(0, 0, 0, 0.03) !important;
-    border-radius: 12px !important;
-    padding: 1rem !important;
-}
-
-[data-testid="stMetricValue"] {
-    color: #6C63FF !important;
-    font-weight: 700 !important;
-}
-
-/* 8. AI UI Components (Keep these upgraded) */
-.ai-helper-box {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(108, 99, 255, 0.3);
-    border-radius: 12px;
-    padding: 1rem;
-    margin-top: 1rem;
-}
-
-.ai-helper-box h4 {
-    margin-top: 0;
-    color: #6C63FF !important;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-[data-testid="stChatMessage"] {
-    background-color: rgba(255, 255, 255, 0.9) !important;
-    border-radius: 16px !important;
-    padding: 1rem !important;
-    margin-bottom: 1rem !important;
-    border: 1px solid #f1f5f9 !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02) !important;
-}
-
-[data-testid="stChatMessage"] * {
-    color: #1e293b !important;
-}
-
-.ai-response-box {
-    background: rgba(108, 99, 255, 0.05);
-    border-left: 4px solid #6C63FF;
-    border-radius: 8px;
-    padding: 15px;
-    margin-top: 10px;
-}
-
-.ai-response-box * {
-    color: #1e293b !important;
-}
 
 [data-testid="stChatInputContainer"] {
     background-color: rgba(255, 255, 255, 0.8) !important;
