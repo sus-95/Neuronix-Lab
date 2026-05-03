@@ -1,0 +1,264 @@
+/* Global Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html,
+body,
+[class*="css"] {
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+}
+
+/* 1. App Background - Modern White/Light Gray Theme */
+.stApp {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+}
+
+/* 2. Sidebar - Clean Frosted Glass (Mac-style) */
+[data-testid="stSidebar"] {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-testid="stSidebar"] * {
+    color: #334155;
+}
+
+/* Sidebar Section Headers */
+.nav-section {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #94a3b8 !important;
+    margin-top: 1.5rem;
+    margin-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    text-transform: uppercase;
+}
+
+.sidebar-header {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a !important;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #6C63FF 0%, #00C9A7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 3. Main Content Buttons */
+.stButton>button {
+    background: linear-gradient(135deg, #6C63FF 0%, #00C9A7 100%) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 0.5rem 1.5rem !important;
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.stButton>button p {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+}
+
+.stButton>button:hover {
+    box-shadow: 0 8px 20px rgba(108, 99, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px) scale(1.01) !important;
+}
+
+/* Sidebar Nav Buttons */
+[data-testid="stSidebar"] .stButton>button {
+    background: transparent !important;
+    border: none !important;
+    border-left: 4px solid transparent !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+[data-testid="stSidebar"] .stButton>button[kind="primary"] {
+    background: linear-gradient(90deg, rgba(108, 99, 255, 0.08) 0%, transparent 100%) !important;
+    border-left: 4px solid #6C63FF !important;
+    border-radius: 0 8px 8px 0 !important;
+}
+
+/* 5. Glassmorphism Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(16px) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+    padding: 1.25rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #6C63FF 0%, #00C9A7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* 7. Metrics */
+[data-testid="stMetric"] {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: #6C63FF !important;
+    font-weight: 700 !important;
+}
+
+/* 8. AI UI Components (Keep these upgraded) */
+.ai-helper-box {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(108, 99, 255, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.ai-helper-box h4 {
+    margin-top: 0;
+    color: #6C63FF !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+[data-testid="stChatMessage"] {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 16px !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+    border: 1px solid #f1f5f9 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02) !important;
+}
+
+[data-testid="stChatMessage"] * {
+    color: #1e293b !important;
+}
+
+.ai-response-box {
+    background: rgba(108, 99, 255, 0.05);
+    border-left: 4px solid #6C63FF;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.ai-response-box * {
+    color: #1e293b !important;
+}
+
+[data-testid="stChatInputContainer"] {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 24px !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 10px !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-testid="stChatInput"] {
+    background-color: white !important;
+    color: #1e293b !important;
+    border-radius: 15px !important;
+}
+
+/* Fix for trash button and other small buttons */
+.stButton>button[help="Clear Chat"] {
+    background: #f1f5f9 !important;
+    color: #ef4444 !important;
+    border: 1px solid #fee2e2 !important;
+}
+
+.stButton>button[help="Clear Chat"]:hover {
+    background: #fee2e2 !important;
+    transform: scale(1.05) !important;
+}
+
+
+/* Aggressive Global Text Visibility Patch */
+[data-testid="stSidebarNav"] * {
+    color: #1e293b !important;
+}
+
+[data-testid="stSidebar"] button p {
+    color: #1e293b !important;
+    font-weight: 500 !important;
+}
+
+[data-testid="stSidebar"] .nav-section {
+    color: #64748b !important;
+    font-weight: 700 !important;
+}
+
+/* Force dark text for all common UI elements */
+.stMarkdown p, .stMarkdown li, .stMarkdown span, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown label {
+    color: #1e293b !important;
+}
+
+/* Fix for inputs that are turning dark/unreadable */
+input, textarea, [data-testid="stTextInput"] div div input {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+}
+
+[data-testid="stSelectbox"] div div div {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+}
+
+/* Fix for Multi-select background */
+[data-testid="stMultiSelect"] div div {
+    background-color: #ffffff !important;
+}
+
+[data-testid="stMultiSelect"] span {
+    color: #1e293b !important;
+}
+
+/* Fix for Tabs visibility */
+[data-testid="stTabs"] button p {
+    color: #64748b !important;
+    font-weight: 600 !important;
+}
+
+[data-testid="stTabs"] button[aria-selected="true"] p {
+    color: #6C63FF !important;
+}
+
+/* Fix for Labels above inputs */
+label[data-testid="stWidgetLabel"] p {
+    color: #475569 !important;
+    font-weight: 600 !important;
+}
+
+/* Fix for Multi-select tags (keep them readable) */
+[data-testid="stMultiSelect"] [data-baseweb="tag"] {
+    background-color: #6C63FF !important;
+    color: white !important;
+}
+
+/* Checkbox and Radio labels */
+[data-testid="stCheckbox"] label p, [data-testid="stRadio"] label p {
+    color: #1e293b !important;
+}
+
+/* Ensure expander text is dark */
+.stExpander * {
+    color: #1e293b !important;
+}
+
+/* Handwriting Lab Specifics */
+.canvas-container { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
