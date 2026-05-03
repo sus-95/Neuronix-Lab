@@ -11,13 +11,16 @@ st.set_page_config(page_title="Neuronix Lab", layout="wide")
 
 # ✅ Load Custom CSS
 def load_css(file_name):
+    # Try to find the file relative to THIS script
+    css_path = os.path.join(os.path.dirname(__file__), file_name)
     try:
-        with open(file_name, "r") as f:
+        with open(css_path, "r") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-    except FileNotFoundError:
-        pass
+    except Exception as e:
+        st.error(f"Error loading CSS: {e}")
 
 load_css("style.css")
+
 
 # ✅ Title
 st.markdown(
