@@ -1,7 +1,9 @@
 /* Global Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
-html, body, [class*="css"] {
+html,
+body,
+[class*="css"] {
     font-family: 'Outfit', sans-serif;
     color: #1e293b;
 }
@@ -38,7 +40,10 @@ html, body, [class*="css"] {
 }
 
 /* 3. Gradient Headers */
-h1, h2, h3, .gradient-text {
+h1,
+h2,
+h3,
+.gradient-text {
     background: linear-gradient(135deg, #6C63FF 0%, #00C9A7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -64,7 +69,7 @@ h1, h2, h3, .gradient-text {
 }
 
 /* 5. Glassmorphism Cards for Sections */
-.stMarkdown div[data-testid="stVerticalBlock"] > div {
+.stMarkdown div[data-testid="stVerticalBlock"]>div {
     background: rgba(255, 255, 255, 0.6) !important;
     backdrop-filter: blur(10px) !important;
     border-radius: 20px !important;
@@ -118,12 +123,20 @@ h1, h2, h3, .gradient-text {
 }
 
 /* Force dark text for all common UI elements */
-.stMarkdown p, .stMarkdown li, .stMarkdown span, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown label {
+.stMarkdown p,
+.stMarkdown li,
+.stMarkdown span,
+.stMarkdown h1,
+.stMarkdown h2,
+.stMarkdown h3,
+.stMarkdown label {
     color: #1e293b !important;
 }
 
 /* Fix for inputs that are turning dark/unreadable */
-input, textarea, [data-testid="stTextInput"] div div input {
+input,
+textarea,
+[data-testid="stTextInput"] div div input {
     background-color: #ffffff !important;
     color: #1e293b !important;
 }
@@ -165,7 +178,8 @@ label[data-testid="stWidgetLabel"] p {
 }
 
 /* Checkbox and Radio labels */
-[data-testid="stCheckbox"] label p, [data-testid="stRadio"] label p {
+[data-testid="stCheckbox"] label p,
+[data-testid="stRadio"] label p {
     color: #1e293b !important;
 }
 
@@ -175,4 +189,10 @@ label[data-testid="stWidgetLabel"] p {
 }
 
 /* Handwriting Lab Specifics */
-.canvas-container { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.canvas-container {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
