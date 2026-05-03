@@ -8,11 +8,12 @@ body,
     color: #1e293b;
 }
 
-/* 1. App Background - Modern Premium Gradient */
+/* 1. App Background - Clean White/Gray (Matches Screenshot) */
 .stApp {
-    background: radial-gradient(circle at top right, #fdfcfb 0%, #e2d1c3 100%) !important;
-    background-attachment: fixed !important;
+    background-color: #f8fafc !important;
+    background-image: none !important;
 }
+
 
 /* 2. Sidebar - Modern Clean Look */
 [data-testid="stSidebar"] {
@@ -50,23 +51,46 @@ h3,
     font-weight: 800 !important;
 }
 
-/* 4. Premium Buttons */
-.stButton>button {
-    background: linear-gradient(135deg, #6C63FF 0%, #00C9A7 100%) !important;
+/* 4. Premium Sidebar Buttons - Slim & Modern */
+[data-testid="stSidebar"] .stButton>button {
+    background: transparent !important;
+    color: #475569 !important;
+    border: 1px solid transparent !important;
+    border-radius: 10px !important;
+    padding: 0.4rem 1rem !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+    margin-bottom: 2px !important;
+}
+
+/* Hover effect - Subtle Glass */
+[data-testid="stSidebar"] .stButton>button:hover {
+    background-color: rgba(108, 99, 255, 0.05) !important;
+    border-color: rgba(108, 99, 255, 0.1) !important;
+    color: #6C63FF !important;
+    transform: translateX(3px) !important;
+}
+
+/* Active Page Button - The "Premium" indicator */
+[data-testid="stSidebar"] .stButton>button[kind="primary"] {
+    background: linear-gradient(90deg, rgba(108, 99, 255, 0.15) 0%, transparent 100%) !important;
+    border-left: 4px solid #6C63FF !important;
+    border-radius: 4px 10px 10px 4px !important;
+    color: #6C63FF !important;
+    font-weight: 700 !important;
+}
+
+/* Global Button Override (Keep main content buttons vibrant) */
+.stApp .stButton>button:not([data-testid="stSidebar"] button) {
+    background: linear-gradient(135deg, #6C63FF 0%, #4834d4 100%) !important;
     color: white !important;
     border: none !important;
     border-radius: 12px !important;
-    padding: 0.6rem 2rem !important;
-    font-weight: 600 !important;
-    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.2) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    text-transform: none !important;
 }
 
-.stButton>button:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3) !important;
-}
 
 /* 5. Glassmorphism Cards for Sections */
 .stMarkdown div[data-testid="stVerticalBlock"]>div {
