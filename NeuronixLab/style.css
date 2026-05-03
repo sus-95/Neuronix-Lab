@@ -8,19 +8,18 @@ body,
     color: #1e293b;
 }
 
-/* 1. App Background - Modern White/Light Gray Theme */
+/* 1. App Background - Force Light Theme */
 .stApp {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+    background: #f8fafc !important;
+    color: #1e293b !important;
 }
 
-/* 2. Sidebar - Clean Frosted Glass (Mac-style) */
+/* 2. Sidebar - Force Light Frosted Glass */
 [data-testid="stSidebar"] {
-    background-color: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border-right: 1px solid rgba(0, 0, 0, 0.05) !important;
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.03) !important;
+    background-color: #ffffff !important;
+    border-right: 1px solid #e2e8f0 !important;
 }
+
 
 [data-testid="stSidebar"] * {
     color: #334155;
