@@ -61,7 +61,6 @@ def show():
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         st.markdown("<h4>🎨 Drawing Canvas</h4>", unsafe_allow_html=True)
         
-        # Back to normal smooth canvas
         canvas_result = st_canvas(
             fill_color="rgba(255, 255, 255, 0)",
             stroke_width=20,
@@ -76,39 +75,34 @@ def show():
         
         st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
         
-        c_btn1, c_btn2 = st.columns(2)
-        if c_btn1.button("🚀 Analyze Handwriting", type="primary", use_container_width=True):
-            if canvas_result.image_data is not None:
-                # 1. Process for CNN (28x28 grayscale, inverted, centered)
-                img_data = canvas_result.image_data[:, :, 0:3]
-                img = Image.fromarray(img_data.astype('uint8')).convert('L')
-                
-                # Invert (canvas is blue on white -> we want white on black)
-                img_array_np = 255 - np.array(img)
-                img_inverted = Image.fromarray(img_array_np.astype('uint8'))
-                
-                # Center and Normalize
-                img_centered = center_image(img_inverted)
-                
-                # CNN PREDICTION
-                img_final = np.array(img_centered).astype('float32') / 255.0
-                if cnn_model:
-                    # Clean threshold
-                    img_final_thresh = np.where(img_final > 0.1, img_final, 0)
-                    preds = cnn_model.predict(img_final_thresh.reshape(1, 28, 28, 1), verbose=0)
-                    idx = np.argmax(preds)
-                    st.session_state.prediction = CLASSES[idx]
-                    st.session_state.confidence = preds[0][idx]
-                
-                # 2. Process for Hopfield Animation (14x14)
-                img_14 = img_centered.resize((H_SIZE, H_SIZE), Image.Resampling.LANCZOS)
-                binary = np.where(np.array(img_14) > 50, 1, -1).flatten()
-                st.session_state.raw_input_pattern = binary.reshape(H_SIZE, H_SIZE)
-                st.session_state.hf_recalled = np.copy(st.session_state.raw_input_pattern)
+        if st.button("🚀 Analyze Handwriting", type="primary", use_container_width=True, key="analyze_btn"):
+            if canvas_result.image_data is not None and np.any(canvas_result.image_data[:, :, 3] > 0):
+                with st.spinner("Neural networks thinking..."):
+                    # 1. Process for CNN
+                    img_data = canvas_result.image_data[:, :, 0:3]
+                    img = Image.fromarray(img_data.astype('uint8')).convert('L')
+                    img_array_np = 255 - np.array(img)
+                    img_inverted = Image.fromarray(img_array_np.astype('uint8'))
+                    img_centered = center_image(img_inverted)
+                    
+                    img_final = np.array(img_centered).astype('float32') / 255.0
+                    if cnn_model:
+                        img_final_thresh = np.where(img_final > 0.1, img_final, 0)
+                        preds = cnn_model.predict(img_final_thresh.reshape(1, 28, 28, 1), verbose=0)
+                        idx = np.argmax(preds)
+                        st.session_state.prediction = CLASSES[idx]
+                        st.session_state.confidence = float(preds[0][idx])
+                    
+                    # 2. Process for Hopfield
+                    img_14 = img_centered.resize((H_SIZE, H_SIZE), Image.Resampling.LANCZOS)
+                    binary = np.where(np.array(img_14) > 50, 1, -1).flatten()
+                    st.session_state.raw_input_pattern = binary.reshape(H_SIZE, H_SIZE)
+                    st.session_state.hf_recalled = np.copy(st.session_state.raw_input_pattern)
+                    st.rerun()
             else:
-                st.warning("Please draw something first!")
+                st.warning("Please draw a letter on the canvas first!")
 
-        if c_btn2.button("🧹 Clear Canvas", use_container_width=True):
+        if st.button("🧹 Clear Canvas", use_container_width=True, key="clear_btn"):
             st.session_state.prediction = None
             st.session_state.confidence = 0
             st.session_state.hf_recalled = None
@@ -116,6 +110,7 @@ def show():
             st.rerun()
             
         st.markdown("</div>", unsafe_allow_html=True)
+
 
     with col2:
         if st.session_state.prediction:
