@@ -13,10 +13,20 @@ from core.ai_helper import render_section_ai
 # Load Model
 @st.cache_resource
 def load_cnn_model():
-    model_path = 'core/letter_cnn.h5'
+    # Use absolute path relative to this file
+    base_path = os.path.dirname(os.path.dirname(__file__))
+    model_path = os.path.join(base_path, 'core', 'letter_cnn.h5')
+    
     if os.path.exists(model_path):
-        return tf.keras.models.load_model(model_path)
+        try:
+            return tf.keras.models.load_model(model_path)
+        except Exception as e:
+            st.error(f"Error loading model: {e}")
+            return None
+    else:
+        st.error(f"Model file not found at: {model_path}")
     return None
+
 
 def train_hopfield(patterns):
     N = len(patterns[0])
